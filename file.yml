@@ -1,0 +1,15 @@
+---
+- name: file creation
+  become: yes
+  tasks: 
+    - name: create a file
+      file: 
+        path: /root/test_25
+        state: touch
+    - name: permission and ownership
+      file:
+        path: /root/test_25
+        state: file
+        owner: ansadmin
+        group: ansadmin
+        mode: 0755
