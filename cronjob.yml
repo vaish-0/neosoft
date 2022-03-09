@@ -1,0 +1,14 @@
+---
+- name: cronjob task
+  hosts: ansible_client
+  tasks: 
+    - name: "example cronjob"
+      ansible.builtin.cron:
+        name: "test"
+        state: present
+        minute: "*/1"
+        hour: "*"
+        day: "*"
+        month: "*"
+        weekday: "*"
+        job: './test.sh >> /root/data_server'
